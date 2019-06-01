@@ -19,41 +19,59 @@ class RecursionManagerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func test_countHi_givenFourHi_returnsFour() {
-        XCTAssertEqual(RecursionManager.countHi("xhixhihixhix"), 4)
+    func test_powerN() {
+        XCTAssertEqual(RecursionManager.powerN(4, n: 3), 64)
+        XCTAssertEqual(RecursionManager.powerN(-2, n: 3), -8)
+        XCTAssertEqual(RecursionManager.powerN(4, n: 0), 1)
+        XCTAssertEqual(RecursionManager.powerN(0, n: 13), 0)
     }
     
-    func test_noX_removesX() {
+    func test_pairStar() {
+        XCTAssertEqual(RecursionManager.pairStar("kitty"), "kit*ty")
+        XCTAssertEqual(RecursionManager.pairStar("kiitty"), "ki*it*ty")
+        XCTAssertEqual(RecursionManager.pairStar(""), "")
+        XCTAssertEqual(RecursionManager.pairStar("k"), "k")
+    }
+    
+    func test_array11() {
+        XCTAssertEqual(RecursionManager.array11([1, 11, -3, 4, 11, 11, 12], index: 0), 3)
+        XCTAssertEqual(RecursionManager.array11([], index: 0), 0)
+        XCTAssertEqual(RecursionManager.array11([11], index: 0), 1)
+        XCTAssertEqual(RecursionManager.array11([6], index: 0), 0)
+    }
+    
+    func test_triangle() {
+        XCTAssertEqual(RecursionManager.triangle(5), 15)
+        XCTAssertEqual(RecursionManager.triangle(0), 0)
+        XCTAssertEqual(RecursionManager.triangle(-1), 0)
+    }
+    
+    func test_countHi() {
+        XCTAssertEqual(RecursionManager.countHi("xhixhihixhix"), 4)
+        XCTAssertEqual(RecursionManager.countHi("x"), 0)
+        XCTAssertEqual(RecursionManager.countHi("hi"), 1)
+        XCTAssertEqual(RecursionManager.countHi(""), 0)
+    }
+    
+    func test_noX() {
         XCTAssertEqual(RecursionManager.noX("xaabx"), "aab")
         XCTAssertEqual(RecursionManager.noX(""), "")
         XCTAssertEqual(RecursionManager.noX("xaxaxbx"), "aab")
     }
     
-    func test_factorial_givenNumGreaterThan1_returnsFactorial() {
+    func test_factorial() {
+        XCTAssertEqual(RecursionManager.factorial(-2), 1)
         XCTAssertEqual(RecursionManager.factorial(5), 120)
     }
     
-    func test_factorial_givenNumLessThan1_returnsOne() {
-        XCTAssertEqual(RecursionManager.factorial(-2), 1)
-    }
-    
-    func test_array220_givenSuccessfulArr_returnsTrue() {
+    func test_array220() {
         XCTAssertEqual(RecursionManager.array220([1, 2, 20], index: 0), true)
-    }
-    
-    func test_array220_givenUnsuccessfulArr_returnsFalse() {
         XCTAssertEqual(RecursionManager.array220([1, 2, 3], index: 0), false)
     }
     
-    func test_strCount_givenStrWithOneValidResult_returnsOne() {
+    func test_strCount() {
         XCTAssertEqual(RecursionManager.strCount(largeString: "dogcatfish", sub: "dog"), 1)
-    }
-    
-    func test_strCount_givenStrWithTwoValidResults_returnsTwo() {
         XCTAssertEqual(RecursionManager.strCount(largeString: "dogcatdog", sub: "dog"), 2)
-    }
-    
-    func test_strCount_givenStrWithZeroValidResults_returnsZero() {
         XCTAssertEqual(RecursionManager.strCount(largeString: "puppy", sub: "dog"), 0)
     }
     
